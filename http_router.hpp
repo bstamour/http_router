@@ -16,6 +16,38 @@
 //
 //------------------------------------------------------------------------------
 
+//------------------------------------------------------------------------------
+// Example of usage
+
+/*
+int main()
+{
+  using router = http_router<wchar_t>;
+  http_listener listener{L"http://127.0.0.1:8000"};
+
+  router r{listener};
+  r.register_routes(
+    L"/hello",  methods::GET,   [](http_request r) {
+        r.reply(status_codes::OK, "Hello world!");
+    },
+    L"/echo/.+", methods::GET,  [](http_request r) {
+        auto msg = r.request_uri().to_string().substr(6);
+        r.reply(status_codes::OK, msg);
+    }
+  );
+
+  try {
+    listener.open().wait();
+    while (true);
+  }
+  catch (exception const& e) {
+    wcout << e.what() << endl;
+  }
+}
+*/
+
+//------------------------------------------------------------------------------
+
 #include <cpprest/http_listener.h>
 
 #include <string>
